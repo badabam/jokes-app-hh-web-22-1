@@ -1,0 +1,24 @@
+GET http://localhost:3333/jokes
+
+###
+GET http://localhost:3333/jokes/62177232895da4b2d31b26d1
+###
+
+POST http://localhost:3333/jokes/
+Content-Type: application/json
+
+{
+"text": "John Doe's best joke.",
+"author": "6217aa42d037c2c138d6fa78"
+}
+
+###
+PATCH http://localhost:3333/jokes/62179c9b8d8b25e0e10fbb68
+Content-Type: application/json
+
+{
+  "text": "This is changed again and again"
+}
+
+###
+DELETE http://localhost:3333/jokes/62177232895da4b2d31b26d1
