@@ -1,0 +1,26 @@
+@baseurl = http://localhost:3000/api
+
+GET {{baseurl}}/people
+
+###
+GET {{baseurl}}/people/6225e81d81e8ea570794039e
+###
+
+POST {{baseurl}}/people/
+Content-Type: application/json
+
+{
+"name": "Jane Doe",
+"email": "jane@doe.com"
+}
+
+###
+PATCH {{baseurl}}/people/6225e81d81e8ea570794039e
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+###
+DELETE {{baseurl}}/people/6225e81d81e8ea570794039e

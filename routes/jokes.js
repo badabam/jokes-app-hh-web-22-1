@@ -1,5 +1,6 @@
 import express from 'express';
 import Joke from '../models/Joke.js';
+import '../models/Person.js';
 
 const router = express.Router();
 
@@ -8,7 +9,7 @@ router.get('/', async (req, res, next) => {
     const jokes = await Joke.find().populate('author', 'name -_id');
     res.json(jokes);
   } catch (error) {
-    next(error);
+    res.status(500).json(error);
   }
 });
 
@@ -18,7 +19,7 @@ router.get('/:id', async (req, res, next) => {
     const joke = await Joke.findById(id);
     res.json(joke);
   } catch (error) {
-    next(error);
+    res.status(500).json(error);
   }
 });
 
@@ -27,7 +28,7 @@ router.post('/', async (req, res, next) => {
     const joke = await Joke.create(req.body);
     res.json(joke);
   } catch (error) {
-    next(error);
+    res.status(500).json(error);
   }
 });
 
@@ -37,7 +38,7 @@ router.patch('/:id', async (req, res, next) => {
     await Joke.findByIdAndUpdate(id, req.body);
     res.sendStatus(200);
   } catch (error) {
-    next(error);
+    res.status(500).json(error);
   }
 });
 
@@ -51,7 +52,7 @@ router.delete('/:id', async (req, res, next) => {
       res.sendStatus(400);
     }
   } catch (error) {
-    next(error);
+    res.status(500).json(error);
   }
 });
 

@@ -1,16 +1,20 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Joke from './components/Joke.js';
 function App() {
-  const jokes = [
-    { text: 'This is a joke', author: 'Jane Doe' },
-    { text: 'This is a joke', author: 'Jane Doe' },
-    { text: 'This is a joke', author: 'Jane Doe' },
-    { text: 'This is a joke', author: 'Jane Doe' },
-  ];
+  const [jokes, setJokes] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/jokes')
+      .then(res => res.json())
+      .then(jokes => setJokes(jokes))
+      .catch(error => console.error(error));
+  }, []);
+
   return (
     <Grid>
-      {jokes.map((joke, index) => (
-        <Joke key={index} text={joke.text} author={joke.author} />
+      {jokes.map(({ text, author: { name } }, index) => (
+        <Joke key={index} text={text} author={name} />
       ))}
     </Grid>
   );

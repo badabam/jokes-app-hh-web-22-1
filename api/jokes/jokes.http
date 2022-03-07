@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:3000/api
+
+GET {{baseUrl}}/jokes
+
+###
+GET {{baseUrl}}/jokes/6225e85ad2a3b23c34482f07
+###
+
+POST {{baseUrl}}/jokes
+Content-Type: application/json
+
+{
+"text": "Jane Doe's worst joke.",
+"author": "6225e84338fa0ceb6deee412"
+}
+
+###
+PATCH {{baseUrl}}/jokes/6225e85ad2a3b23c34482f07
+Content-Type: application/json
+
+{
+  "text": "This is changed"
+}
+
+###
+DELETE {{baseUrl}}/jokes/6225e85ad2a3b23c34482f07
