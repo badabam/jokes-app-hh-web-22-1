@@ -8,5 +8,6 @@ POST {{baseUrl}}/jokes
 Content-Type: application/json
 
 {
-  "hello": "you"
+  "text": "Another joke",
+  "author": "6225e84338fa0ceb6deee412"
 }
