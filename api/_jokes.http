@@ -1,0 +1,12 @@
+@baseUrl = http://localhost:3000/api
+
+
+GET {{baseUrl}}/jokes
+
+###
+POST {{baseUrl}}/jokes
+Content-Type: application/json
+
+{
+  "hello": "you"
+}
